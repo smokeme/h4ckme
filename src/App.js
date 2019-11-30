@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Main from "./Components/Main";
+import Details from "./Components/Details";
+import Login from "./Components/Login";
+import Create from "./Components/Create";
+import ArticleStore from "./Stores/Article";
+import UserStore from "./Stores/User";
+import { Route, Switch, Redirect } from "react-router";
+import { observer } from "mobx-react";
+import { toJS } from "mobx";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={props => (
+            <Main
+              {...props}
+              articles={toJS(ArticleStore.articles)}
+              loading={toJS(ArticleStore.loading)}
+            />
+          )}
+        />
+        <Route path="/detail/:articleID" component={Details} />
+        <Route path="/login" component={Login} />
+        <Route path="/create" component={Create} />
+
+        <Redirect to="/" />
+      </Switch>
+    </>
   );
 }
 
-export default App;
+export default observer(App);
