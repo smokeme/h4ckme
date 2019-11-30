@@ -116,7 +116,7 @@ class Login extends Component {
               />
               <div className="form-group">
                 <button className="btn btn-primary btn-block" type="submit">
-                  Log In
+                  Create
                 </button>
               </div>
             </form>
