@@ -1,7 +1,7 @@
 import { decorate, observable } from "mobx";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-export const url = "https://api.infoseckw.com//";
+export const url = "https://api.infoseckw.com/";
 export const instance = axios.create({
   baseURL: url,
   timeout: 1000,
