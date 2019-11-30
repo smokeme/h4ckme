@@ -5,6 +5,8 @@ import Main from "./Components/Main";
 import Details from "./Components/Details";
 import Login from "./Components/Login";
 import Create from "./Components/Create";
+import Secret from "./Components/Secret";
+
 import ArticleStore from "./Stores/Article";
 import UserStore from "./Stores/User";
 import { Route, Switch, Redirect } from "react-router";
@@ -29,6 +31,7 @@ function App() {
         <Route path="/detail/:articleID" component={Details} />
         <Route path="/login" component={Login} />
         <Route path="/create" component={Create} />
+        <Route path="/secret" component={Secret} />
 
         <Redirect to="/" />
       </Switch>
